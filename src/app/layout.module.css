@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 32px 24px;
+}
