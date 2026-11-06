@@ -13,7 +13,7 @@ export default function NotFoundPage() {
       <p className={styles.code}>404</p>
       <h1 className={styles.title}>Page not found</h1>
       <p className={styles.text}>
-        The page you're looking for doesn't exist or has been moved.
+        The page you’re looking for doesn’t exist or has been moved.
       </p>
       <Link className={styles.link} href="/">
         Back to home
