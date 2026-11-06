@@ -7,6 +7,8 @@ export type Product = {
   description: string;
   /** Price in cents to avoid floating-point rounding errors. */
   priceCents: number;
+  /** Absolute URL of a square product photo. */
+  image: string;
   category: ProductCategory;
   inStock: boolean;
 };

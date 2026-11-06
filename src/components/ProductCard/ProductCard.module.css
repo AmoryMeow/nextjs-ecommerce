@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 20px;
+  height: 100%;
+  overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 12px;
   transition: border-color 0.15s;
@@ -11,6 +11,30 @@
 
 .card:hover {
   border-color: var(--muted);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+}
+
+.image {
+  object-fit: contain;
+  padding: 16px;
+  transition: transform 0.3s;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px 20px;
 }
 
 .category {
