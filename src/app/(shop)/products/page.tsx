@@ -5,5 +5,5 @@ export const metadata: Metadata = {
 };
 
 export default function CatalogPage() {
-  return <main>Catalog</main>;
+  return <h1>Catalog</h1>;
 }
