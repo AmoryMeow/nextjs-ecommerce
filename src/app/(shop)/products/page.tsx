@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { CategoryFilter } from "@/components/CategoryFilter/CategoryFilter";
+import { SearchBox } from "@/components/SearchBox/SearchBox";
 import { getProducts } from "@/lib/products/queries";
 import { isProductCategory } from "@/lib/products/types";
 
@@ -14,13 +15,17 @@ export const metadata: Metadata = {
 export default async function CatalogPage({
   searchParams,
 }: PageProps<"/products">) {
-  const { category } = await searchParams;
+  const { q, category } = await searchParams;
   const activeCategory = isProductCategory(category) ? category : undefined;
+  const query = typeof q === "string" ? q.trim() : "";
 
   const allProducts = await getProducts();
-  const products = activeCategory
-    ? allProducts.filter((product) => product.category === activeCategory)
-    : allProducts;
+  const normalizedQuery = query.toLowerCase();
+  const products = allProducts.filter(
+    (product) =>
+      (!activeCategory || product.category === activeCategory) &&
+      product.name.toLowerCase().includes(normalizedQuery),
+  );
 
   return (
     <>
@@ -30,14 +35,19 @@ export default async function CatalogPage({
           {products.length} {products.length === 1 ? "product" : "products"}
         </p>
       </div>
-      <CategoryFilter activeCategory={activeCategory} />
-      <ul className={styles.grid}>
-        {products.map((product) => (
-          <li key={product.id}>
-            <ProductCard product={product} />
-          </li>
-        ))}
-      </ul>
+      <SearchBox />
+      <CategoryFilter activeCategory={activeCategory} query={query} />
+      {products.length === 0 ? (
+        <p className={styles.empty}>No products found.</p>
+      ) : (
+        <ul className={styles.grid}>
+          {products.map((product) => (
+            <li key={product.id}>
+              <ProductCard product={product} />
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
