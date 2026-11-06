@@ -1,4 +1,16 @@
-export type ProductCategory = "audio" | "wearables" | "accessories" | "home";
+export const PRODUCT_CATEGORIES = [
+  "audio",
+  "wearables",
+  "accessories",
+  "home",
+] as const;
+
+export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
+
+/** Narrows an arbitrary value (e.g. a URL search param) to a known category. */
+export function isProductCategory(value: unknown): value is ProductCategory {
+  return PRODUCT_CATEGORIES.includes(value as ProductCategory);
+}
 
 export type Product = {
   id: string;

@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: var(--muted);
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.link:hover {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.link[aria-current="page"] {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+}
