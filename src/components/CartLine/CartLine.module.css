@@ -46,3 +46,71 @@
   font-size: 16px;
   font-weight: 600;
 }
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.stepButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.stepButton:hover {
+  background: var(--surface);
+}
+
+.stepButton:disabled {
+  color: var(--muted);
+  background: transparent;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.qty {
+  min-width: 28px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.remove {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.remove:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+}

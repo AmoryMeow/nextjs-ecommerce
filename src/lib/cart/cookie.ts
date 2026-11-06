@@ -1,6 +1,8 @@
 import type { CartItem } from "@/lib/cart/types";
 
 export const CART_COOKIE = "cart";
+/** Maximum quantity of a single product in the cart. */
+export const MAX_QUANTITY = 99;
 
 /** Keep the cart for 30 days after the last change. */
 export const CART_COOKIE_MAX_AGE = 60 * 60 * 24 * 30;
