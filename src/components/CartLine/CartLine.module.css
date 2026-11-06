@@ -1,0 +1,48 @@
+.line {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* `position: relative` is required for <Image fill>. */
+.media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.image {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.name a:hover {
+  text-decoration: underline;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.total {
+  font-size: 16px;
+  font-weight: 600;
+}

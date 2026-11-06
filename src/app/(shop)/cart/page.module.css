@@ -1,0 +1,38 @@
+.title {
+  margin-bottom: 24px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+}
+
+.list {
+  padding: 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty a {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+.loading {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--muted);
+}
