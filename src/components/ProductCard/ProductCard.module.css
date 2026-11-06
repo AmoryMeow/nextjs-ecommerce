@@ -1,0 +1,58 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--muted);
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.description {
+  flex: 1;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.outOfStock {
+  font-size: 12px;
+  color: var(--muted);
+}
