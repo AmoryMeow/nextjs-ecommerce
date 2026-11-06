@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products/types";
+import { addToCart } from "@/lib/cart/actions";
 
 import styles from "./ProductDetails.module.css";
 
@@ -33,11 +34,19 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           <p className={styles.category}>{product.category}</p>
           <h1 className={styles.name}>{product.name}</h1>
           <p className={styles.price}>{formatPrice(product.priceCents)}</p>
-          <p
-            className={product.inStock ? styles.inStock : styles.outOfStock}
-          >
+          <p className={product.inStock ? styles.inStock : styles.outOfStock}>
             {product.inStock ? "In stock" : "Out of stock"}
           </p>
+          <form action={addToCart}>
+            <input type="hidden" name="slug" value={product.slug} />
+            <button
+              type="submit"
+              className={styles.addToCart}
+              disabled={!product.inStock}
+            >
+              Add to cart
+            </button>
+          </form>
           <p className={styles.description}>{product.description}</p>
         </div>
       </div>

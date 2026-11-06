@@ -87,3 +87,28 @@
   font-size: 16px;
   color: var(--muted);
 }
+
+.addToCart {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.addToCart:hover {
+  opacity: 0.85;
+}
+
+.addToCart:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
