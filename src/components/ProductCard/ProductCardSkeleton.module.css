@@ -1,0 +1,65 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.media {
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px 20px;
+}
+
+.line {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.short {
+  width: 30%;
+}
+
+.title {
+  width: 70%;
+  height: 18px;
+}
+
+.medium {
+  width: 60%;
+}
+
+.price {
+  width: 25%;
+  height: 16px;
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media,
+  .line {
+    animation: none;
+  }
+}

@@ -1,10 +1,12 @@
 import { cache } from "react";
 
-import type { Product } from "./types";
-import { products } from "./data";
+import type { Product } from "@/lib/products/types";
+import { products } from "@/lib/products/data";
+import { delay } from "@/lib/delay";
 
-export function getProducts(): Promise<Product[]> {
-  return Promise.resolve(products);
+export async function getProducts(): Promise<Product[]> {
+  await delay(1000);
+  return products;
 }
 
 export const getProductBySlug = cache(
