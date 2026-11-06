@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.text {
+  max-width: 420px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.button,
+.link {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.button {
+  border: none;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.link {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+}
+
+.button:hover,
+.link:hover {
+  opacity: 0.85;
+}
