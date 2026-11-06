@@ -1,0 +1,89 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.back {
+  align-self: flex-start;
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.back:hover {
+  color: var(--foreground);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 769px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+/* `position: relative` is required for <Image fill>. */
+.media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.image {
+  object-fit: contain;
+  padding: 32px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.name {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.9px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.inStock,
+.outOfStock {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.inStock {
+  color: #16a34a;
+}
+
+.outOfStock {
+  color: var(--muted);
+}
+
+.description {
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--muted);
+}
