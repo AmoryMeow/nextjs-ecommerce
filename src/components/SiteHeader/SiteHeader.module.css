@@ -32,3 +32,9 @@
 .nav a:hover {
   color: var(--foreground);
 }
+
+.cartLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

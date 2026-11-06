@@ -1,4 +1,8 @@
+import { Suspense } from "react";
 import Link from "next/link";
+
+import { CartCount } from "@/components/CartCount/CartCount";
+
 import styles from "./SiteHeader.module.css";
 
 export function SiteHeader() {
@@ -14,7 +18,12 @@ export function SiteHeader() {
               <Link href="/products">Catalog</Link>
             </li>
             <li>
-              <Link href="/cart">Cart</Link>
+              <Link className={styles.cartLink} href="/cart">
+                Cart
+                <Suspense fallback={null}>
+                  <CartCount />
+                </Suspense>
+              </Link>
             </li>
           </ul>
         </nav>
