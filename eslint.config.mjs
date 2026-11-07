@@ -5,6 +5,15 @@ import { defineConfig, globalIgnores } from "eslint/config";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      // Allow `const { id, ...rest } = obj` to drop a field without a warning.
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { ignoreRestSiblings: true },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
