@@ -63,3 +63,17 @@
 .submit:hover {
   opacity: 0.85;
 }
+
+.input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.error {
+  font-size: 14px;
+  color: #dc2626;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
