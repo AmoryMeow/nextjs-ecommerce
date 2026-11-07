@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: cartly-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cartly
+      POSTGRES_PASSWORD: cartly
+      POSTGRES_DB: cartly
+    ports:
+      - "5433:5432"
+    volumes:
+      - cartly-db:/var/lib/postgresql/data
+
+volumes:
+  cartly-db:
