@@ -114,3 +114,10 @@
   color: var(--foreground);
   text-decoration: underline;
 }
+
+.remove:disabled {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: wait;
+  opacity: 0.6;
+}
