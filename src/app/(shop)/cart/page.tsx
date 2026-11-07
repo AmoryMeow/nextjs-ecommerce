@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Suspense } from "react";
 import Link from "next/link";
+import { Suspense } from "react";
 
-import { CART_COOKIE, parseCart } from "@/lib/cart/cookie";
-import { getProducts } from "@/lib/products/queries";
 import { CartLine } from "@/components/CartLine/CartLine";
+import { CART_COOKIE, parseCart } from "@/lib/cart/cookie";
 import { formatPrice } from "@/lib/format";
+import { getProducts } from "@/lib/products/queries";
 
 import styles from "./page.module.css";
 

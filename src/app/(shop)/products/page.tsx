@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { CategoryFilter } from "@/components/CategoryFilter/CategoryFilter";
+import { ProductCard } from "@/components/ProductCard/ProductCard";
 import { SearchBox } from "@/components/SearchBox/SearchBox";
 import { getProducts } from "@/lib/products/queries";
 import { isProductCategory } from "@/lib/products/types";

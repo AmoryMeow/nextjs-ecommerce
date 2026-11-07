@@ -11,6 +11,7 @@ The project is at the initial setup stage: it has the base tooling and a minimal
 - [TypeScript](https://www.typescriptlang.org) (strict mode)
 - [CSS Modules](https://nextjs.org/docs/app/getting-started/css#css-modules)
 - [ESLint](https://eslint.org) with `eslint-config-next`
+- [Prettier](https://prettier.io) with sorted imports
 - [npm](https://www.npmjs.com)
 
 ## Getting started
@@ -31,13 +32,15 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 ### Scripts
 
-| Command             | Description                           |
-| ------------------- | ------------------------------------- |
-| `npm run dev`       | Start the development server          |
-| `npm run build`     | Create a production build             |
-| `npm start`         | Serve the production build            |
-| `npm run lint`      | Run ESLint                            |
-| `npm run typecheck` | Run the TypeScript compiler (no emit) |
+| Command                | Description                           |
+| ---------------------- | ------------------------------------- |
+| `npm run dev`          | Start the development server          |
+| `npm run build`        | Create a production build             |
+| `npm start`            | Serve the production build            |
+| `npm run lint`         | Run ESLint                            |
+| `npm run typecheck`    | Run the TypeScript compiler (no emit) |
+| `npm run format`       | Format all files with Prettier        |
+| `npm run format:check` | Check formatting without writing      |
 
 ## Project structure
 

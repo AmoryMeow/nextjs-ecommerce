@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import { PRODUCT_CATEGORIES } from "@/lib/products/types";
-import type { ProductCategory } from "@/lib/products/types";
+import { PRODUCT_CATEGORIES, type ProductCategory } from "@/lib/products/types";
 
 import styles from "./CategoryFilter.module.css";
 

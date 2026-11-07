@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products/types";

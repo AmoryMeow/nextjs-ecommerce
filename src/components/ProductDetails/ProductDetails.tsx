@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { addToCart } from "@/lib/cart/actions";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products/types";
-import { addToCart } from "@/lib/cart/actions";
 
 import styles from "./ProductDetails.module.css";
 

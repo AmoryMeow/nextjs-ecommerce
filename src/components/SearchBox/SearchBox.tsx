@@ -1,7 +1,7 @@
 "use client";
 
-import type { SubmitEvent } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import type { SubmitEvent } from "react";
 
 import styles from "./SearchBox.module.css";
 

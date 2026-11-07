@@ -4,10 +4,10 @@ import Link from "next/link";
 import { updateQuantity } from "@/lib/cart/actions";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products/types";
-import { RemoveButton } from "./RemoveButton";
-import { QuantityStepper } from "./QuantityStepper";
 
 import styles from "./CartLine.module.css";
+import { QuantityStepper } from "./QuantityStepper";
+import { RemoveButton } from "./RemoveButton";
 
 type CartLineProps = {
   product: Product;
