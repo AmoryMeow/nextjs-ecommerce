@@ -2,9 +2,8 @@ import { loadEnvConfig } from "@next/env";
 import { sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 
-import { products as productData } from "@/lib/products/data";
-
 import { products } from "./schema";
+import { seedProducts } from "./seed-data";
 
 loadEnvConfig(process.cwd());
 
@@ -15,7 +14,7 @@ async function main() {
 
   const inserted = await db
     .insert(products)
-    .values(productData.map(({ id, ...rest }) => rest))
+    .values(seedProducts)
     .returning({ id: products.id });
 
   console.log(`Seeded ${inserted.length} products`);

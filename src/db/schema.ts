@@ -27,3 +27,7 @@ export const products = pgTable("products", {
     .notNull()
     .defaultNow(),
 });
+
+export type Product = typeof products.$inferSelect;
+
+export type NewProduct = typeof products.$inferInsert;

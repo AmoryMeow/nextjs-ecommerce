@@ -1,12 +1,11 @@
-import type { Product } from "./types";
+import type { NewProduct } from "@/db/schema";
 
 const IMAGE_BASE_URL = "https://cdn.dummyjson.com/product-images";
 
-// Temporary mock data. Will be replaced by a database later.
+// Initial catalog inserted by `npm run db:seed`.
 // Photos come from DummyJSON (https://dummyjson.com), a free API with demo data.
-export const products: Product[] = [
+export const seedProducts: NewProduct[] = [
   {
-    id: "1",
     slug: "aurora-wireless-headphones",
     name: "Aurora Wireless Headphones",
     description:
@@ -17,7 +16,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "2",
     slug: "pulse-earbuds",
     name: "Pulse Earbuds",
     description:
@@ -28,7 +26,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "3",
     slug: "echo-smart-speaker",
     name: "Echo Smart Speaker",
     description:
@@ -39,7 +36,6 @@ export const products: Product[] = [
     inStock: false,
   },
   {
-    id: "4",
     slug: "flex-wireless-earphones",
     name: "Flex Wireless Earphones",
     description:
@@ -50,7 +46,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "5",
     slug: "orbit-smartwatch",
     name: "Orbit Smartwatch",
     description:
@@ -61,7 +56,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "6",
     slug: "heritage-leather-watch",
     name: "Heritage Leather Watch",
     description:
@@ -72,7 +66,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "7",
     slug: "lunar-moonphase-watch",
     name: "Lunar Moonphase Watch",
     description:
@@ -83,7 +76,6 @@ export const products: Product[] = [
     inStock: false,
   },
   {
-    id: "8",
     slug: "volt-magnetic-battery-pack",
     name: "Volt Magnetic Battery Pack",
     description:
@@ -94,7 +86,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "9",
     slug: "loop-usb-c-charger",
     name: "Loop USB-C Charger",
     description: "Compact 20 W wall charger with a braided USB-C cable.",
@@ -104,7 +95,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "10",
     slug: "nomad-silicone-case",
     name: "Nomad Silicone Case",
     description:
@@ -115,7 +105,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "11",
     slug: "lumen-table-lamp",
     name: "Lumen Table Lamp",
     description:
@@ -126,7 +115,6 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: "12",
     slug: "nest-wireless-charging-pad",
     name: "Nest Wireless Charging Pad",
     description:

@@ -1,9 +1,8 @@
-export const PRODUCT_CATEGORIES = [
-  "audio",
-  "wearables",
-  "accessories",
-  "home",
-] as const;
+import { productCategoryEnum } from "@/db/schema";
+
+export type { Product } from "@/db/schema";
+
+export const PRODUCT_CATEGORIES = productCategoryEnum.enumValues;
 
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
 
@@ -11,16 +10,3 @@ export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
 export function isProductCategory(value: unknown): value is ProductCategory {
   return PRODUCT_CATEGORIES.includes(value as ProductCategory);
 }
-
-export type Product = {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  /** Price in cents to avoid floating-point rounding errors. */
-  priceCents: number;
-  /** Absolute URL of a square product photo. */
-  image: string;
-  category: ProductCategory;
-  inStock: boolean;
-};
