@@ -31,3 +31,28 @@ export const products = pgTable("products", {
 export type Product = typeof products.$inferSelect;
 
 export type NewProduct = typeof products.$inferInsert;
+
+export const orders = pgTable("orders", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  stripeSessionId: text("stripe_session_id").notNull().unique(),
+  email: text("email"),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  totalCents: integer("total_cents").notNull(),
+});
+
+export const orderItems = pgTable("order_items", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  orderId: integer("order_id")
+    .notNull()
+    .references(() => orders.id, { onDelete: "cascade" }),
+  productSlug: text("product_slug").notNull(),
+  name: text("name").notNull(),
+  unitPriceCents: integer("unit_price_cents").notNull(),
+  quantity: integer("quantity").notNull(),
+});
+
+export type Order = typeof orders.$inferSelect;
+
+export type OrderItem = typeof orderItems.$inferSelect;
