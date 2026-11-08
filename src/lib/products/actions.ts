@@ -7,6 +7,7 @@ import * as z from "zod";
 
 import { db } from "@/db";
 import { products } from "@/db/schema";
+import { getSession } from "@/lib/auth/session";
 import {
   productFormSchema,
   type ProductFormState,
@@ -17,6 +18,9 @@ export async function updateProduct(
   _prevState: ProductFormState,
   formData: FormData,
 ): Promise<ProductFormState> {
+  const session = await getSession();
+  if (!session) redirect("/login");
+
   const values = {
     name: String(formData.get("name") ?? ""),
     description: String(formData.get("description") ?? ""),
