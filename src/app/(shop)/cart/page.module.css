@@ -36,3 +36,32 @@
   text-align: center;
   color: var(--muted);
 }
+
+.checkout {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.checkoutButton {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.checkoutButton:hover {
+  opacity: 0.85;
+}
+
+.checkoutButton:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}

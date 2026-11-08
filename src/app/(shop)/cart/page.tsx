@@ -4,7 +4,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import { CartLine } from "@/components/CartLine/CartLine";
+import { CheckoutButton } from "@/components/CheckoutButton/CheckoutButton";
 import { CART_COOKIE, parseCart } from "@/lib/cart/cookie";
+import { checkout } from "@/lib/checkout/actions";
 import { formatPrice } from "@/lib/format";
 import { getProducts } from "@/lib/products/queries";
 
@@ -64,6 +66,9 @@ async function CartContents() {
         <span>Total</span>
         <span>{formatPrice(total)}</span>
       </div>
+      <form className={styles.checkout} action={checkout}>
+        <CheckoutButton className={styles.checkoutButton} />
+      </form>
     </>
   );
 }
