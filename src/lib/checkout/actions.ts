@@ -41,7 +41,7 @@ export async function checkout(): Promise<void> {
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: lineItems,
-    success_url: `${getSiteUrl()}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${getSiteUrl()}/checkout/complete?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${getSiteUrl()}/cart`,
   });
 
