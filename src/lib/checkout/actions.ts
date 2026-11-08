@@ -6,7 +6,8 @@ import type Stripe from "stripe";
 
 import { CART_COOKIE, parseCart } from "@/lib/cart/cookie";
 import { getProducts } from "@/lib/products/queries";
-import { getSiteUrl, stripe } from "@/lib/stripe";
+import { getSiteUrl } from "@/lib/site";
+import { stripe } from "@/lib/stripe";
 
 export async function checkout(): Promise<void> {
   const items = parseCart((await cookies()).get(CART_COOKIE)?.value);

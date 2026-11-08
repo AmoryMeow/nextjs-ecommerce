@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ProductDetails } from "@/components/ProductDetails/ProductDetails";
 import { getProductBySlug, getProducts } from "@/lib/products/queries";
+import { getSiteUrl } from "@/lib/site";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -32,6 +33,7 @@ export async function generateMetadata({
         },
       ],
     },
+    alternates: { canonical: `/products/${product.slug}` },
   };
 }
 
@@ -43,5 +45,34 @@ export default async function ProductPage({
 
   if (!product) notFound();
 
-  return <ProductDetails product={product} />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: [product.image],
+    sku: product.slug,
+    offers: {
+      "@type": "Offer",
+      price: (product.priceCents / 100).toFixed(2),
+      priceCurrency: "USD",
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      url: `${getSiteUrl()}/products/${product.slug}`,
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
+      <ProductDetails product={product} />
+    </>
+  );
 }

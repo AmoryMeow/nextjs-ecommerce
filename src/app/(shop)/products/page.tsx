@@ -10,6 +10,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Catalog",
+  alternates: { canonical: "/products" },
 };
 
 export default async function CatalogPage({
