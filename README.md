@@ -4,6 +4,8 @@ A modern e-commerce storefront, built as a pet project with the Next.js App Rout
 
 The project is at the initial setup stage: it has the base tooling and a minimal homepage. Store functionality has not been built yet.
 
+[![CI](https://github.com/AmoryMeow/nextjs-ecommerce/actions/workflows/ci.yml/badge.svg)](https://github.com/AmoryMeow/nextjs-ecommerce/actions/workflows/ci.yml)
+
 ## Tech stack
 
 - [Next.js](https://nextjs.org) 16 (App Router)
