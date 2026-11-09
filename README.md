@@ -12,13 +12,14 @@ The project is at the initial setup stage: it has the base tooling and a minimal
 - [CSS Modules](https://nextjs.org/docs/app/getting-started/css#css-modules)
 - [ESLint](https://eslint.org) with `eslint-config-next`
 - [Prettier](https://prettier.io) with sorted imports
+- [Vitest](https://vitest.dev) for unit tests
 - [npm](https://www.npmjs.com)
 
 ## Getting started
 
 ### Prerequisites
 
-- Node.js 20.9 or later
+- Node.js 22.12 or later
 - npm 10 or later
 
 ### Local development
@@ -41,6 +42,8 @@ Then open [http://localhost:3000](http://localhost:3000).
 | `npm run typecheck`    | Run the TypeScript compiler (no emit) |
 | `npm run format`       | Format all files with Prettier        |
 | `npm run format:check` | Check formatting without writing      |
+| `npm test`             | Run unit tests once                   |
+| `npm run test:watch`   | Run unit tests in watch mode          |
 
 ## Project structure
 
