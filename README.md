@@ -13,6 +13,7 @@ The project is at the initial setup stage: it has the base tooling and a minimal
 - [ESLint](https://eslint.org) with `eslint-config-next`
 - [Prettier](https://prettier.io) with sorted imports
 - [Vitest](https://vitest.dev) for unit tests
+- [Playwright](https://playwright.dev) for end-to-end tests
 - [npm](https://www.npmjs.com)
 
 ## Getting started
@@ -33,17 +34,19 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 ### Scripts
 
-| Command                | Description                           |
-| ---------------------- | ------------------------------------- |
-| `npm run dev`          | Start the development server          |
-| `npm run build`        | Create a production build             |
-| `npm start`            | Serve the production build            |
-| `npm run lint`         | Run ESLint                            |
-| `npm run typecheck`    | Run the TypeScript compiler (no emit) |
-| `npm run format`       | Format all files with Prettier        |
-| `npm run format:check` | Check formatting without writing      |
-| `npm test`             | Run unit tests once                   |
-| `npm run test:watch`   | Run unit tests in watch mode          |
+| Command                | Description                            |
+| ---------------------- | -------------------------------------- |
+| `npm run dev`          | Start the development server           |
+| `npm run build`        | Create a production build              |
+| `npm start`            | Serve the production build             |
+| `npm run lint`         | Run ESLint                             |
+| `npm run typecheck`    | Run the TypeScript compiler (no emit)  |
+| `npm run format`       | Format all files with Prettier         |
+| `npm run format:check` | Check formatting without writing       |
+| `npm test`             | Run unit tests once                    |
+| `npm run test:watch`   | Run unit tests in watch mode           |
+| `npm run test:e2e`     | Build the app and run Playwright tests |
+| `npm run test:e2e:ui`  | Run Playwright tests in the UI mode    |
 
 ## Project structure
 

@@ -12,6 +12,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "db:up": "docker compose up -d",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@next/env": "16.4.5",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.2",
     "@types/pg": "8.23.1",
     "@types/react": "^19",
