@@ -10,7 +10,8 @@ export default defineConfig({
   // Fail the CI run if a `test.only` was committed by accident.
   forbidOnly: isCI,
   retries: isCI ? 2 : 0,
-  reporter: isCI ? "github" : "list",
+  // In CI: annotations in the GitHub UI plus an HTML report to download.
+  reporter: isCI ? [["github"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}`,
     // Record a trace (DOM snapshots, network, console) when a test is retried.
