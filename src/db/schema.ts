@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   boolean,
   integer,
@@ -56,3 +57,14 @@ export const orderItems = pgTable("order_items", {
 export type Order = typeof orders.$inferSelect;
 
 export type OrderItem = typeof orderItems.$inferSelect;
+
+export const ordersRelations = relations(orders, ({ many }) => ({
+  items: many(orderItems),
+}));
+
+export const orderItemsRelations = relations(orderItems, ({ one }) => ({
+  order: one(orders, {
+    fields: [orderItems.orderId],
+    references: [orders.id],
+  }),
+}));

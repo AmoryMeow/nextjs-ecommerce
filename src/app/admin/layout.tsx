@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { AdminNav } from "@/components/AdminNav/AdminNav";
+
 import styles from "./layout.module.css";
 
 export const metadata: Metadata = {
@@ -9,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function AdminLayout({ children }: LayoutProps<"/admin">) {
-  return <div className={styles.container}>{children}</div>;
+  return (
+    <div className={styles.container}>
+      <AdminNav />
+      {children}
+    </div>
+  );
 }

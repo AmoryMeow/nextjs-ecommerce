@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { logout } from "@/lib/auth/actions";
 import { formatPrice } from "@/lib/format";
 import { getProducts } from "@/lib/products/queries";
 
@@ -16,14 +15,7 @@ export default async function AdminPage() {
 
   return (
     <>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Products</h1>
-        <form action={logout}>
-          <button className={styles.logout} type="submit">
-            Log out
-          </button>
-        </form>
-      </div>
+      <h1 className={styles.title}>Products</h1>
       <ul className={styles.list}>
         {products.map((product) => (
           <li key={product.id} className={styles.item}>

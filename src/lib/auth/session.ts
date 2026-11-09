@@ -2,6 +2,7 @@ import "server-only";
 
 import { createHash, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 import {
   SESSION_COOKIE,
@@ -51,4 +52,14 @@ export function isValidAdminPassword(password: string): boolean {
     throw new Error("ADMIN_PASSWORD is not set. See .env.example.");
   }
   return timingSafeEqual(sha256(password), sha256(expected));
+}
+
+/**
+ * Data Access Layer guard: call it at the top of every function that reads
+ * private data. Sends guests to the login page.
+ */
+export async function requireAdmin(): Promise<SessionPayload> {
+  const session = await getSession();
+  if (!session) redirect("/login");
+  return session;
 }
