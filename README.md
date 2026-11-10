@@ -4,6 +4,8 @@
 
 A small online store built with the Next.js App Router: a product catalog, a cookie-based cart, Stripe Checkout and a password-protected admin panel.
 
+**Live demo:** [cartly-store.vercel.app](https://cartly-store.vercel.app). Payments run in Stripe test mode: use the card `4242 4242 4242 4242` with any future date and any CVC. No real money is charged.
+
 ## Features
 
 - **Catalog** with search and category filters kept in the URL
@@ -26,6 +28,7 @@ A small online store built with the Next.js App Router: a product catalog, a coo
 - [Vitest](https://vitest.dev) for unit tests, [Playwright](https://playwright.dev) for end-to-end tests
 - [ESLint](https://eslint.org), [Prettier](https://prettier.io) with sorted imports
 - GitHub Actions for CI
+- [Vercel](https://vercel.com) hosting with a [Neon](https://neon.tech) Postgres database
 
 ## Getting started
 
@@ -111,6 +114,25 @@ Copy the printed `whsec_…` secret into `STRIPE_WEBHOOK_SECRET` and restart `np
 | `npm run db:studio`    | Open Drizzle Studio to browse the database          |
 
 Before the first `npm run test:e2e`, install the browser once with `npx playwright install chromium`.
+
+## Deployment
+
+The app is deployed on **Vercel**, with the database on **Neon** (Postgres 17). Both run in Frankfurt (`fra1` / `aws-eu-central-1`) so database queries stay fast.
+
+- **Continuous deployment.** Vercel is connected to this GitHub repository. Every push to `main` creates a production deployment; pushes to other branches and pull requests get preview deployments on their own URLs.
+- **CI** runs separately in GitHub Actions on every push and pull request: lint, types, formatting, unit tests and Playwright tests against a throwaway Postgres.
+- **Environment variables** are set in Vercel (Project → Settings → Environment Variables), with production values that differ from local ones. After changing a variable, redeploy for it to take effect.
+- **Stripe webhook.** An event destination in the Stripe dashboard sends `checkout.session.completed` to `https://cartly-store.vercel.app/api/stripe/webhook`. Its signing secret is `STRIPE_WEBHOOK_SECRET` in Vercel. The API key and the webhook must belong to the same Stripe sandbox.
+
+### Database migrations in production
+
+Migrations are not applied automatically. When a commit adds a migration, apply it to Neon **before** pushing, so the new code never runs against an old schema:
+
+```bash
+DATABASE_URL='<Neon pooled connection string>' npm run db:migrate
+```
+
+Preview deployments use the same Neon database as production.
 
 ## Project structure
 
